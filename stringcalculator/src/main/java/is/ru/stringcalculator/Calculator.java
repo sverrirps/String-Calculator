@@ -14,7 +14,7 @@ public class Calculator {
 		}
 		else
 		{
-			return 1;
+			return toInt(text);
 		}
 	}
 
