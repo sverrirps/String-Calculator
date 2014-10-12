@@ -38,4 +38,9 @@ public class CalculatorTest{
 	public void testMultipleNumbers() {
 		assertEquals(24, Calculator.add("2,4,5,1,12"));
 	}
+
+	@Test
+	public void testNewLinesBetweenNumbers() {
+		assertEquals(3, Calculator.add("1\n2"));
+	}
 }
