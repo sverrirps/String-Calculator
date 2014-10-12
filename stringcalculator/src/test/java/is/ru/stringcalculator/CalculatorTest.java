@@ -43,4 +43,9 @@ public class CalculatorTest{
 	public void testNewLinesBetweenNumbers() {
 		assertEquals(3, Calculator.add("1\n2"));
 	}
+
+	@Test
+	public void testSplitWithCommaAndNewline() {
+		assertEquals(6, Calculator.add("1\n2,3"));
+	}
 }
