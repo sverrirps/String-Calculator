@@ -7,6 +7,18 @@ public class Calculator {
 		{
 			return 0;
 		}
+		else if (text.startsWith("//"))
+		{
+			String delimiter = Character.toString(text.charAt(2));
+			String[] numbers = text.substring(4).split(delimiter);
+			int total = 0;
+			for (int i = 0; i < numbers.length; i++)
+			{
+				total += toInt(numbers[i]);
+			}
+
+			return total;
+		}
 		else if (text.contains(",") || text.contains("\n"))
 		{
 			return sum(splitNumbers(text));
