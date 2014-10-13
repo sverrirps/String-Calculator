@@ -9,15 +9,7 @@ public class Calculator {
 		}
 		else if (text.startsWith("//"))
 		{
-			String delimiter = Character.toString(text.charAt(2));
-			String[] numbers = text.substring(4).split(delimiter);
-			int total = 0;
-			for (int i = 0; i < numbers.length; i++)
-			{
-				total += toInt(numbers[i]);
-			}
-
-			return total;
+			return splitWithNewDelimiter(text);
 		}
 		else if (text.contains(",") || text.contains("\n"))
 		{
@@ -35,6 +27,11 @@ public class Calculator {
 
 	private static String[] splitNumbers(String numbers){
 		return numbers.split(",|\n");
+	}
+
+	private static int splitWithNewDelimiter(String numbers){
+		String delimiter = Character.toString(numbers.charAt(2));
+		return sum(numbers.substring(4).split(delimiter));
 	}
 
 	private static int sum(String[] numbers){
