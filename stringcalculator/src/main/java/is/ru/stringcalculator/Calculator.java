@@ -1,4 +1,5 @@
 package is.ru.stringcalculator;
+//import java.lang.*;
 
 public class Calculator {
 
@@ -6,6 +7,11 @@ public class Calculator {
 		if (text.equals(""))
 		{
 			return 0;
+		}
+		else if (text.contains("-"))
+		{
+			String errormessage = "Negatives not allowed: -1";
+			throw new IllegalArgumentException(errormessage);
 		}
 		else if (text.startsWith("//"))
 		{
