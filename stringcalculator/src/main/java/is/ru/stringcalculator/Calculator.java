@@ -22,7 +22,14 @@ public class Calculator {
 		}
 		else
 		{
-			return toInt(text);
+			if (toInt(text) <= 1000)
+			{
+				return toInt(text);
+			}
+			else
+			{
+				return 0;
+			}
 		}
 	}
 
