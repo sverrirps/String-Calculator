@@ -68,4 +68,11 @@ public class CalculatorTest{
 		thrown.expectMessage(equalTo("Negatives not allowed: -1"));
 		Calculator.add("-1,2");
 	}
+
+	@Test
+	public void testMultipleNegativeNumbersByThrowingIllegalArgumentException() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage(equalTo("Negatives not allowed: -4,-5"));
+		Calculator.add("2,-4,3,-5");
+	}
 }
