@@ -36,14 +36,17 @@ public class Calculator {
 
 	private static int splitWithNewDelimiter(String numbers){
 		String delimiter = Character.toString(numbers.charAt(2));
-		return sum(numbers.substring(4).split(delimiter));
+		return sum(numbers.substring(4).split(delimiter)); //setja sum inni main fallid
 	}
 
 	private static int sum(String[] numbers){
 		int total = 0;
 		for (int i = 0; i < numbers.length; i++)
 		{
-			total += toInt(numbers[i]);
+			if (toInt(numbers[i]) <= 1000)
+			{
+				total += toInt(numbers[i]);
+			}
 		}
 		return total;
 	}
