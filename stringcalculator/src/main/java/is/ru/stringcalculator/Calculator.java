@@ -10,25 +10,7 @@ public class Calculator {
 		}
 		else if (text.contains("-"))
 		{
-			ArrayList<Character> negativesList = new ArrayList<Character>();
-			char[] characters = text.toCharArray();
-			for (int i = 0; i < (characters.length -1); i++)
-			{
-				if (characters[i] == '-')
-				{
-					negativesList.add(characters[i+1]);
-				}
-			}
-
-			String errormessage = "Negatives not allowed: -" + negativesList.get(0);
-			if (negativesList.size() > 1)
-			{
-				for (int j = 1; j < negativesList.size(); j++)
-				{
-					errormessage += (",-" + negativesList.get(j));
-				}
-			}
-			throw new IllegalArgumentException(errormessage);
+			return throwNegativeNumberException(text);
 		}
 		else if (text.startsWith("//"))
 		{
@@ -64,5 +46,27 @@ public class Calculator {
 			total += toInt(numbers[i]);
 		}
 		return total;
+	}
+
+	private static int throwNegativeNumberException(String text) {
+		ArrayList<Character> negativesList = new ArrayList<Character>();
+			char[] characters = text.toCharArray();
+			for (int i = 0; i < (characters.length -1); i++)
+			{
+				if (characters[i] == '-')
+				{
+					negativesList.add(characters[i+1]);
+				}
+			}
+
+			String errormessage = "Negatives not allowed: -" + negativesList.get(0);
+			if (negativesList.size() > 1)
+			{
+				for (int j = 1; j < negativesList.size(); j++)
+				{
+					errormessage += (",-" + negativesList.get(j));
+				}
+			}
+			throw new IllegalArgumentException(errormessage);
 	}
 }
