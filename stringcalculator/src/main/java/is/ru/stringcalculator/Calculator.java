@@ -14,7 +14,7 @@ public class Calculator {
 		}
 		else if (text.startsWith("//"))
 		{
-			return splitWithNewDelimiter(text);
+			return sum(splitWithNewDelimiter(text));
 		}
 		else if (text.contains(",") || text.contains("\n"))
 		{
@@ -34,9 +34,9 @@ public class Calculator {
 		return numbers.split(",|\n");
 	}
 
-	private static int splitWithNewDelimiter(String numbers){
+	private static String[] splitWithNewDelimiter(String numbers){
 		String delimiter = Character.toString(numbers.charAt(2));
-		return sum(numbers.substring(4).split(delimiter)); //setja sum inni main fallid
+		return numbers.substring(4).split(delimiter);
 	}
 
 	private static int sum(String[] numbers){
