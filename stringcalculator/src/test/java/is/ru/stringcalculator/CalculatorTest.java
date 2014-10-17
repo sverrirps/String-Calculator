@@ -85,4 +85,9 @@ public class CalculatorTest{
 	public void testSingleNumberBiggerThan1000() {
 		assertEquals(0, Calculator.add("1234"));
 	}
+
+	@Test
+	public void testNumbersBiggerThan1000SplitByDifferentDelimiter() {
+		assertEquals(8, Calculator.add("//;\n1;2345;7"));
+	}
 }
