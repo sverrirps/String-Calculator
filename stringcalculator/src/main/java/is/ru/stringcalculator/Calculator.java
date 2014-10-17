@@ -42,8 +42,24 @@ public class Calculator {
 	}
 
 	private static String[] splitWithNewDelimiter(String numbers){
-		String delimiter = Character.toString(numbers.charAt(2));
-		return numbers.substring(4).split(delimiter);
+		if (numbers.charAt(2) == '[')
+		{
+			int counter = 5;
+			String multiCharDelimiter = "";
+			for (int i = 3; numbers.charAt(i) != ']'; i++)
+			{
+				multiCharDelimiter += numbers.charAt(i);
+				counter++;
+			}
+			return numbers.substring(counter).split(multiCharDelimiter);
+		}
+		else
+		{
+			String delimiter = Character.toString(numbers.charAt(2));
+			return numbers.substring(4).split(delimiter);
+		}
+
+		
 	}
 
 	private static int sum(String[] numbers){

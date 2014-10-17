@@ -90,4 +90,9 @@ public class CalculatorTest{
 	public void testNumbersBiggerThan1000SplitByDifferentDelimiter() {
 		assertEquals(8, Calculator.add("//;\n1;2345;7"));
 	}
+
+	@Test
+	public void testDifferentDelimiterOfAnyLength() {
+		assertEquals(6, Calculator.add("//[svessi]\n1svessi2svessi3"));
+	}
 }
