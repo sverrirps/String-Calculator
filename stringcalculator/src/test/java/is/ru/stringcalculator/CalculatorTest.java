@@ -7,7 +7,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
-import java.util.regex.Pattern;
 
 public class CalculatorTest{
 
@@ -100,6 +99,11 @@ public class CalculatorTest{
 	@Test
 	public void testDifferentDelimiterOfAnyLength2(){
 		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
+	}
+
+	@Test
+	public void testMultipleDelimiters() {
+		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
 	}
 
 }

@@ -44,15 +44,40 @@ public class Calculator {
 	private static String[] splitWithNewDelimiter(String numbers){
 		if ((numbers.charAt(2) == '[') && (numbers.contains("]")))
 		{
-			int counter = 5;
-			String multiCharDelimiter = "";
-			for (int i = 3; numbers.charAt(i) != ']'; i++)
+			int numberOfSquareBrackets = 0;
+			for (int j = 0; j < numbers.length(); j++)
 			{
-				multiCharDelimiter += numbers.charAt(i);
-				counter++;
+				if (numbers.charAt(j) == '[')
+				{
+					numberOfSquareBrackets++;
+				}
 			}
-			String finalMultiCharDelimiter = "[" + multiCharDelimiter + "]+";
-			return numbers.substring(counter).split(finalMultiCharDelimiter);
+			if (numberOfSquareBrackets > 1)
+			{
+				String delimiters = "[";
+				for (int k = 0; k <= numbers.indexOf("\n"); k++)
+				{
+					if (numbers.charAt(k) == '[')
+					{
+						delimiters += numbers.charAt(k + 1);
+					}
+
+				}
+				delimiters += "]";
+				return numbers.substring(numbers.indexOf("\n") + 1).split(delimiters);
+			}
+			else
+			{
+				int counter = 5;
+				String multiCharDelimiter = "[";
+				for (int i = 3; numbers.charAt(i) != ']'; i++)
+				{
+					multiCharDelimiter += numbers.charAt(i);
+					counter++;
+				}
+				multiCharDelimiter += "]+";
+				return numbers.substring(counter).split(multiCharDelimiter);
+			}
 		}
 		else
 		{
