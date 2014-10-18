@@ -44,27 +44,19 @@ public class Calculator {
 	private static String[] splitWithNewDelimiter(String numbers){
 		if ((numbers.charAt(2) == '[') && (numbers.contains("]")))
 		{
-			int numberOfSquareBrackets = 0;
-			for (int j = 0; j < numbers.length(); j++)
-			{
-				if (numbers.charAt(j) == '[')
-				{
-					numberOfSquareBrackets++;
-				}
-			}
-			if (numberOfSquareBrackets > 1)
+			int indexOfNewline = numbers.indexOf("\n");
+			if (numberOfSquareBrackets(numbers) > 1)
 			{
 				String delimiters = "[";
-				for (int k = 0; k <= numbers.indexOf("\n"); k++)
+				for (int k = 0; k <= indexOfNewline; k++)
 				{
 					if (numbers.charAt(k) == '[')
 					{
 						delimiters += numbers.charAt(k + 1);
 					}
-
 				}
 				delimiters += "]";
-				return numbers.substring(numbers.indexOf("\n") + 1).split(delimiters);
+				return numbers.substring(indexOfNewline + 1).split(delimiters);
 			}
 			else
 			{
@@ -120,5 +112,18 @@ public class Calculator {
 				}
 			}
 			throw new IllegalArgumentException(errormessage);
+	}
+
+	private static int numberOfSquareBrackets(String text)
+	{
+		int numberOfSquareBrackets = 0;
+			for (int j = 0; j < text.length(); j++)
+			{
+				if (text.charAt(j) == '[')
+				{
+					numberOfSquareBrackets++;
+				}
+			}
+		return numberOfSquareBrackets;
 	}
 }
