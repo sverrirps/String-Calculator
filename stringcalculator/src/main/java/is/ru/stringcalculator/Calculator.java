@@ -52,10 +52,15 @@ public class Calculator {
 				{
 					if (numbers.charAt(k) == '[')
 					{
-						delimiters += numbers.charAt(k + 1);
+						int l = k + 1;
+						while (numbers.charAt(l) != ']')
+						{
+							delimiters += numbers.charAt(l);
+							l++;
+						}
 					}
 				}
-				delimiters += "]";
+				delimiters += "]+";
 				return numbers.substring(indexOfNewline + 1).split(delimiters);
 			}
 			else
