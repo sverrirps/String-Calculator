@@ -42,7 +42,7 @@ public class Calculator {
 	}
 
 	private static String[] splitWithNewDelimiter(String numbers){
-		if (numbers.charAt(2) == '[')
+		if ((numbers.charAt(2) == '[') && (numbers.contains("]")))
 		{
 			int counter = 5;
 			String multiCharDelimiter = "";
@@ -51,7 +51,8 @@ public class Calculator {
 				multiCharDelimiter += numbers.charAt(i);
 				counter++;
 			}
-			return numbers.substring(counter).split(multiCharDelimiter);
+			String finalMultiCharDelimiter = "[" + multiCharDelimiter + "]+";
+			return numbers.substring(counter).split(finalMultiCharDelimiter);
 		}
 		else
 		{
