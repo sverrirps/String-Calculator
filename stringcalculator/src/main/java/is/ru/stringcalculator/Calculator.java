@@ -81,8 +81,6 @@ public class Calculator {
 			String delimiter = Character.toString(numbers.charAt(2));
 			return numbers.substring(4).split(delimiter);
 		}
-
-		
 	}
 
 	private static int sum(String[] numbers){
